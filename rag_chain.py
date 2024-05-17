@@ -4,8 +4,9 @@ from langchain_openai import ChatOpenAI, AzureChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel
 import os
-os.environ["AZURE_OPENAI_ENDPOINT"] = "https://sanskrutishivanshishubham.openai.azure.com/"
-os.environ["AZURE_OPENAI_API_KEY"] = "632c648af6b2485f897c16345d035387"
+import streamlit as st
+os.environ['AZURE_OPENAI_ENDPOINT'] = st.secrets["OPENAI"]["AZURE_OPENAI_ENDPOINT"]
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI"]["OPENAI_KEY"]
 
 def get_expression_chain(
     retriever

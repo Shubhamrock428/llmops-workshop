@@ -21,7 +21,7 @@ AZURE_OPENAI_ENDPOINT = "https://sanskrutishivanshishubham.openai.azure.com/"
 client = Client()
 # embeddings = OpenAIEmbeddings()
 embeddings =  AzureOpenAIEmbeddings(azure_endpoint=AZURE_OPENAI_ENDPOINT
-                                   ,openai_api_key=os.environ['OPENAI_API_KEY'],
+                                   ,api_key=os.environ['OPENAI_API_KEY'],
                                    model='shubham-text-embedding-ada-002')
 # loading filenames to show in streamlit app
 with open("mappings.json", 'r') as json_file:
