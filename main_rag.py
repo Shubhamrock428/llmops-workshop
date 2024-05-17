@@ -16,11 +16,11 @@ os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGSMITH"]['LANGSMITH_API_KEY']
 os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI"]["OPENAI_KEY"]
 os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE"]['PINECONE_API_KEY']
 os.environ['LANGCHAIN_PROJECT'] = st.secrets["LANGSMITH"]["LANGCHAIN_PROJECT"]
-AZURE_OPENAI_ENDPOINT = "https://sanskrutishivanshishubham.openai.azure.com/"
+os.environ['AZURE_OPENAI_ENDPOINT'] = st.secrets["OPENAI"]["AZURE_OPENAI_ENDPOINT"]
 
 client = Client()
 # embeddings = OpenAIEmbeddings()
-embeddings =  AzureOpenAIEmbeddings(azure_endpoint=AZURE_OPENAI_ENDPOINT
+embeddings =  AzureOpenAIEmbeddings(azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT']
                                    ,api_key=os.environ['OPENAI_API_KEY'],
                                    model='shubham-text-embedding-ada-002')
 # loading filenames to show in streamlit app
